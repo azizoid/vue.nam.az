@@ -1,24 +1,3 @@
-# namaz
+Şükr və tərif Allaha məxsusdur, biz Ona şükr edirik, Onu tərif edirik, Onu köməyə çağırırıq, Ondan bağışlanma diləyirik, nəfslərimizin şərindən və pis əməllərdən qorunmaq üçün Allaha sığınırıq. Allahın haqq yoluna yönəltdiyi şəxsi azdıran, azdırdığı şəxsi isə haqq yoluna yönəldən tapılmaz. Mən şahidlik edirəm ki, Allahdan başqa ibadətə haqqı olan məbud yoxdur, Onun şəriki yoxdur və şahidlik edirəm ki, Məhəmməd Onun qulu və elçisidir.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Uca Allahdan hər bir əməlimizin ixlasla yalnız Onun üçün edilməsini və Onun Peyğəmbərinin, səllallahu aleyhi və səlləm, yolunda olmasını diləyirik! Oxucularımıza bu yolda uğurlar, xeyir və bərəkət arzulayırıq. Unutmayaq ki, biz yalnız Allah üçün yaşayırıq və sonda Ona da dönəcəyik. O, hər şeyin hesabını tez çəkəndir!
