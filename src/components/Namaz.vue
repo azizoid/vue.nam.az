@@ -5,29 +5,35 @@
       :key="index"
       class="alert col-sm-12 col-md-2"
       :class="
-          index == 1
-            ? 'alert-light'
-            : currentprayer == index
-            ? 'alert-success'
-            : ''
-        "
+        index == 1
+          ? 'alert-light'
+          : currentprayer == index
+          ? 'alert-success'
+          : ''
+      "
     >
-      <h5>{{ prayer["title"] }}</h5>
-      <h1>{{ prayer["time"] }}</h1>
-      <i>
-        {{
+      <h6>{{ prayer["title"] }}</h6>
+      <h2>{{ prayer["time"] }}</h2>
+      <small v-if="index !== 1">{{
         new Date(tarix + " " + prayer["time"]) | moment("from", "now")
-        }}
-      </i>
+      }}</small>
+      <div v-if="currentprayer == index && index !== 1 ? true : false">
+        <hr />
+        <span class="badge badge-warning">
+          Vaxtınız varkən
+          <br />Namazınızı qılın
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["prayers", "currentprayer", "location"],
+  props: ["prayers", "currentprayer"],
   data: () => ({
     //
+    ruket: [2, 0, 4, 4, 3, 4]
   }),
   computed: {
     nowis: function() {
@@ -36,12 +42,6 @@ export default {
     tarix: function() {
       return this.nowis.format("YYYY-MM-DD");
     }
-  },
-  methods: {
-    //
-  },
-  mounted: function() {
-    //
   }
 };
 </script>

@@ -1,49 +1,64 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark" sticky="sticky">
+    <b-navbar toggleable="lg" type="light" variant="light">
       <div class="container">
-        <b-navbar-brand href="#">Nam.az</b-navbar-brand>
+        <b-navbar-brand href="#">
+          <img
+            src="./assets/namaz.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt
+          />
+
+          Nam.az
+        </b-navbar-brand>
 
         <b-navbar-nav>
           <b-nav-item>
-            <b-dropdown id="dropdown-1" :text="location" size="sm" variant="success">
-              <b-dropdown-item
+            <select
+              class="form-control btn-outline-success"
+              @change="changeLocation($event)"
+            >
+              <option
                 v-for="(city, index) in cities"
                 :key="index"
-                @click="changeLocation(index)"
-              >{{city}}</b-dropdown-item>
-            </b-dropdown>
+                :value="index"
+                >{{ city }}</option
+              >
+            </select>
           </b-nav-item>
         </b-navbar-nav>
       </div>
     </b-navbar>
     <div class="container">
-      <div class="text-center" id="location">
-        <h1 class="nowis">{{ livetime }}</h1>
-        <h1>{{location}}</h1>
-        <small>
-          {{
-          new Date()
-          | moment("add", "0 minutes")
-          | moment("dddd, D MMMM YYYY")
-          }}
-        </small>
-      </div>
-      <Namaz :prayers="prayers" :currentprayer="currentprayer" :location="location" />
-      <div class="text-center text-muted">
+      <!-- <div class="text-center text-muted">
         Həqiqətən, namaz çirkin əməllərdən çəkindirir.
         <a
           href="https://quran.az/29/45"
           target="blank"
         >(29:45)</a>
+      </div>-->
+      <div class="text-center d-none d-lg-block" id="location">
+        <h1 class="nowis">{{ livetime }}</h1>
+        <h1>{{ location }}</h1>
+        <small>
+          {{
+            new Date()
+              | moment("add", "0 minutes")
+              | moment("dddd, D MMMM YYYY")
+          }}
+        </small>
       </div>
+      <Namaz :prayers="prayers" :currentprayer="currentprayer" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Namaz from "./components/Namaz.vue";
+//import Namaz from "./components/Namaz.vue";
+const Namaz = () => import("./components/Namaz.vue");
 
 export default {
   name: "App",
@@ -53,14 +68,14 @@ export default {
   data: () => ({
     prayers: [
       { id: 1, title: "Sübh", time: "00:00" },
-      { id: 2, title: "Günəş", time: "00:00" },
-      { id: 3, title: "Zöhr", time: "00:00" },
-      { id: 4, title: "Əsr", time: "00:00" },
-      { id: 5, title: "Məğrib", time: "00:00" },
-      { id: 6, title: "İşa", time: "00:00" }
+      { id: 2, title: "Günəş", time: "01:10" },
+      { id: 3, title: "Zöhr", time: "01:20" },
+      { id: 4, title: "Əsr", time: "03:30" },
+      { id: 5, title: "Məğrib", time: "04:40" },
+      { id: 6, title: "İşa", time: "05:50" }
     ],
     location: "Bakı",
-    currentprayer: 0,
+    currentprayer: 5,
     livetime: "00:00",
     cities: {
       1: "Baki",
@@ -88,7 +103,7 @@ export default {
       for (let i = 0; i < 6; i++) {
         let tmp = data.prayers[i];
         this.prayers[i]["time"] = tmp;
-        if (timeNow > tmp) this.currentprayer = i + 1;
+        if (timeNow > tmp) this.currentprayer = i;
       }
     },
     time() {
@@ -98,10 +113,11 @@ export default {
     },
     loadApi(city) {
       axios
-        .get("https://teklif.az/api/" + city)
+        .get("https://nam.az/api/" + city)
         .then(response => this.insertTimes(response.data));
     },
-    changeLocation(v) {
+    changeLocation(event) {
+      let v = event.target.value;
       this.location = this.cities[v];
       this.loadApi(v);
     }
