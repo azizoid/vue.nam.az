@@ -14,9 +14,11 @@
     >
       <h6>{{ prayer["title"] }}</h6>
       <h2>{{ prayer["time"] }}</h2>
-      <small v-if="index !== 1">{{
-        new Date(tarix + " " + prayer["time"]) | moment("from", "now")
-      }}</small>
+      <small v-if="index !== 1">
+        {{
+        new Date(tarix + " " + prayer["time"]) | moment("YYYY-MM-DD HH:mm") | moment("from", "now")
+        }}
+      </small>
       <div v-if="currentprayer == index && index !== 1 ? true : false">
         <hr />
         <span class="badge badge-warning">
@@ -37,10 +39,10 @@ export default {
   }),
   computed: {
     nowis: function() {
-      return this.$moment();
+      return this.$moment(new Date());
     },
     tarix: function() {
-      return this.nowis.format("YYYY-MM-DD");
+      return this.nowis.format("YYYY/MM/DD");
     }
   }
 };

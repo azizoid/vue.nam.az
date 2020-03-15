@@ -3,29 +3,14 @@
     <b-navbar toggleable="lg" type="light" variant="light">
       <div class="container">
         <b-navbar-brand href="#">
-          <img
-            src="./assets/namaz.png"
-            width="30"
-            height="30"
-            class="d-inline-block align-top"
-            alt
-          />
-
+          <img src="./assets/namaz.png" width="30" height="30" class="d-inline-block align-top" alt />
           Nam.az
         </b-navbar-brand>
 
         <b-navbar-nav>
           <b-nav-item>
-            <select
-              class="form-control btn-outline-success"
-              @change="changeLocation($event)"
-            >
-              <option
-                v-for="(city, index) in cities"
-                :key="index"
-                :value="index"
-                >{{ city }}</option
-              >
+            <select class="form-control btn-outline-success" @change="changeLocation($event)">
+              <option v-for="(city, index) in cities" :key="index" :value="index">{{ city }}</option>
             </select>
           </b-nav-item>
         </b-navbar-nav>
@@ -44,9 +29,9 @@
         <h1>{{ location }}</h1>
         <small>
           {{
-            new Date()
-              | moment("add", "0 minutes")
-              | moment("dddd, D MMMM YYYY")
+          new Date()
+          | moment("add", "0 minutes")
+          | moment("dddd, D MMMM YYYY")
           }}
         </small>
       </div>
