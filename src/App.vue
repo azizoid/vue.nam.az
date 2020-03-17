@@ -1,21 +1,39 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" variant="light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky">
       <div class="container">
-        <b-navbar-brand href="#">
-          <img src="./assets/namaz.png" width="30" height="30" class="d-inline-block align-top" alt />
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/namaz.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt
+          />
           Nam.az
-        </b-navbar-brand>
+        </a>
 
-        <b-navbar-nav>
-          <b-nav-item>
-            <select class="form-control btn-outline-success" @change="changeLocation($event)">
-              <option v-for="(city, index) in cities" :key="index" :value="index">{{ city }}</option>
-            </select>
-          </b-nav-item>
-        </b-navbar-nav>
+        <div class="collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <select
+                class="form-control btn-outline-success"
+                @change="changeLocation($event)"
+              >
+                <option
+                  v-for="(city, index) in cities"
+                  :key="index"
+                  :value="index"
+                >
+                  {{ city }}
+                </option>
+              </select>
+            </li>
+          </ul>
+        </div>
       </div>
-    </b-navbar>
+    </nav>
+
     <div class="container">
       <!-- <div class="text-center text-muted">
         Həqiqətən, namaz çirkin əməllərdən çəkindirir.
@@ -24,14 +42,14 @@
           target="blank"
         >(29:45)</a>
       </div>-->
-      <div class="text-center d-none d-lg-block" id="location">
+      <div class="text-center d-none d-md-block" id="location">
         <h1 class="nowis">{{ livetime }}</h1>
         <h1>{{ location }}</h1>
         <small>
           {{
-          new Date()
-          | moment("add", "0 minutes")
-          | moment("dddd, D MMMM YYYY")
+            new Date()
+              | moment("add", "0 minutes")
+              | moment("dddd, D MMMM YYYY")
           }}
         </small>
       </div>
@@ -40,7 +58,9 @@
     <footer class="footer">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">&copy; 2020</li>
+          <li class="breadcrumb-item active" aria-current="page">
+            &copy; 2020
+          </li>
           <li class="breadcrumb-item">
             <a href="https://www.nam.az">Nam.az</a>
           </li>
@@ -55,8 +75,8 @@
 
 <script>
 import axios from "axios";
-//import Namaz from "./components/Namaz.vue";
 const Namaz = () => import("./components/Namaz.vue");
+// import Namaz from "./components/Namaz.vue";
 
 export default {
   name: "App",
@@ -65,18 +85,18 @@ export default {
   },
   data: () => ({
     prayers: [
-      { id: 1, title: "Sübh", time: "00:00" },
+      { id: 1, title: "Sübh Namazı", time: "00:00" },
       { id: 2, title: "Günəş", time: "01:10" },
-      { id: 3, title: "Zöhr", time: "01:20" },
-      { id: 4, title: "Əsr", time: "03:30" },
-      { id: 5, title: "Məğrib", time: "04:40" },
-      { id: 6, title: "İşa", time: "05:50" }
+      { id: 3, title: "Zöhr Namazı", time: "01:20" },
+      { id: 4, title: "Əsr Namazı", time: "03:30" },
+      { id: 5, title: "Məğrib Namazı", time: "04:40" },
+      { id: 6, title: "İşa Namazı", time: "05:50" }
     ],
     location: "Bakı",
     currentprayer: 5,
     livetime: "00:00",
     cities: {
-      1: "Baki",
+      1: "Bakı",
       2: "Ağdam",
       3: "Astara",
       4: "Gəncə",

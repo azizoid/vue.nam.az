@@ -16,9 +16,9 @@
       <h2>{{ prayer["time"] }}</h2>
       <small v-if="index !== 1">
         {{
-        new Date(tarix + " " + prayer["time"])
-        | moment("YYYY-MM-DD HH:mm")
-        | moment("from", "now")
+          new Date(tarix + " " + prayer["time"])
+            | moment("YYYY-MM-DD HH:mm")
+            | moment("from", "now")
         }}
       </small>
       <div v-if="currentprayer == index && index !== 1 ? true : false">
