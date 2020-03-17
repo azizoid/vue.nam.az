@@ -6,7 +6,7 @@
       class="alert col-sm-12 col-md-2"
       :class="
         index == 1
-          ? 'alert-light'
+          ? 'alert-light text-muted'
           : currentprayer == index
           ? 'alert-success'
           : ''
@@ -16,11 +16,12 @@
       <h2>{{ prayer["time"] }}</h2>
       <small v-if="index !== 1">
         {{
-        new Date(tarix + " " + prayer["time"]) | moment("YYYY-MM-DD HH:mm") | moment("from", "now")
+        new Date(tarix + " " + prayer["time"])
+        | moment("YYYY-MM-DD HH:mm")
+        | moment("from", "now")
         }}
       </small>
       <div v-if="currentprayer == index && index !== 1 ? true : false">
-        <hr />
         <span class="badge badge-warning">
           Vaxtınız varkən
           <br />Namazınızı qılın

@@ -37,6 +37,19 @@
       </div>
       <Namaz :prayers="prayers" :currentprayer="currentprayer" />
     </div>
+    <footer class="footer">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">&copy; 2020</li>
+          <li class="breadcrumb-item">
+            <a href="https://www.nam.az">Nam.az</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="https://www.quran.az">Quran.az</a>
+          </li>
+        </ol>
+      </nav>
+    </footer>
   </div>
 </template>
 
