@@ -3,30 +3,15 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img
-            src="./assets/namaz.png"
-            width="30"
-            height="30"
-            class="d-inline-block align-top"
-            alt
-          />
+          <img src="./assets/namaz.png" width="30" height="30" class="d-inline-block align-top" alt />
           Nam.az
         </a>
 
         <div class="collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <select
-                class="form-control btn-outline-success"
-                @change="changeLocation($event)"
-              >
-                <option
-                  v-for="(city, index) in cities"
-                  :key="index"
-                  :value="index"
-                >
-                  {{ city }}
-                </option>
+              <select class="form-control btn-outline-success" @change="changeLocation($event)">
+                <option v-for="(city, index) in cities" :key="index" :value="index">{{ city }}</option>
               </select>
             </li>
           </ul>
@@ -47,28 +32,28 @@
         <h1>{{ location }}</h1>
         <small>
           {{
-            new Date()
-              | moment("add", "0 minutes")
-              | moment("dddd, D MMMM YYYY")
+          new Date()
+          | moment("add", "0 minutes")
+          | moment("dddd, D MMMM YYYY")
           }}
         </small>
       </div>
       <Namaz :prayers="prayers" :currentprayer="currentprayer" />
     </div>
     <footer class="footer">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">
-            &copy; 2020
-          </li>
-          <li class="breadcrumb-item">
-            <a href="https://www.nam.az">Nam.az</a>
-          </li>
-          <li class="breadcrumb-item">
-            <a href="https://www.quran.az">Quran.az</a>
-          </li>
-        </ol>
-      </nav>
+      <div class>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">&copy; 2020</li>
+            <li class="breadcrumb-item">
+              <a href="https://www.nam.az">Nam.az</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="https://www.quran.az">Quran.az</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
     </footer>
   </div>
 </template>
@@ -121,7 +106,9 @@ export default {
       for (let i = 0; i < 6; i++) {
         let tmp = data.prayers[i];
         this.prayers[i]["time"] = tmp;
-        if (timeNow > tmp) this.currentprayer = i;
+        if (timeNow > tmp) {
+          this.currentprayer = i;
+        }
       }
     },
     time() {
