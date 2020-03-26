@@ -7,8 +7,8 @@ import "./styles/style.css";
 import App from "./App.vue";
 
 import moment from "moment";
-const lang = "az";
-moment.locale(lang);
+require("moment/locale/az");
+moment.locale("az");
 Vue.use(require("vue-moment"), { moment });
 
 import VueGtag from "vue-gtag";

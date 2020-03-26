@@ -20,13 +20,6 @@
     </nav>
 
     <div class="container">
-      <!-- <div class="text-center text-muted">
-        Həqiqətən, namaz çirkin əməllərdən çəkindirir.
-        <a
-          href="https://quran.az/29/45"
-          target="blank"
-        >(29:45)</a>
-      </div>-->
       <div class="text-center d-none d-md-block" id="location">
         <h1 class="nowis">{{ livetime }}</h1>
         <h1>{{ location }}</h1>
