@@ -33,7 +33,7 @@
       </div>
       <Namaz :prayers="prayers" :currentprayer="currentprayer" />
     </div>
-    <footer class="footer">
+        <footer className="footer">
       <div class>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -74,22 +74,22 @@ export default {
     currentprayer: 5,
     livetime: "00:00",
     cities: {
-      1: "Bakı",
-      2: "Ağdam",
-      3: "Astara",
-      4: "Gəncə",
-      5: "Qazax",
-      6: "Quba",
-      7: "Lənkəran",
-      8: "Saatlı",
-      9: "Sabirabad",
-      10: "Şamaxı",
-      11: "Şəki",
-      12: "Xaçmaz",
-      13: "Yevlax",
-      14: "Naxçıvan",
-      15: "Göycay",
-      16: "Zaqatala"
+      0: "Bakı",
+      1: "Ağdam",
+      2: "Astara",
+      3: "Gəncə",
+      4: "Qazax",
+      5: "Quba",
+      6: "Lənkəran",
+      7: "Saatlı",
+      8: "Sabirabad",
+      9: "Şamaxı",
+      10: "Şəki",
+      11: "Xaçmaz",
+      12: "Yevlax",
+      13: "Naxçıvan",
+      14: "Göycay",
+      15: "Zaqatala"
     }
   }),
   methods: {
