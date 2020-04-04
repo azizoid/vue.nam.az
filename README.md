@@ -1,3 +1,19 @@
-Şükr və tərif Allaha məxsusdur, biz Ona şükr edirik, Onu tərif edirik, Onu köməyə çağırırıq, Ondan bağışlanma diləyirik, nəfslərimizin şərindən və pis əməllərdən qorunmaq üçün Allaha sığınırıq. Allahın haqq yoluna yönəltdiyi şəxsi azdıran, azdırdığı şəxsi isə haqq yoluna yönəldən tapılmaz. Mən şahidlik edirəm ki, Allahdan başqa ibadətə haqqı olan məbud yoxdur, Onun şəriki yoxdur və şahidlik edirəm ki, Məhəmməd Onun qulu və elçisidir.
+Nam.az is an educational project
 
-Uca Allahdan hər bir əməlimizin ixlasla yalnız Onun üçün edilməsini və Onun Peyğəmbərinin, səllallahu aleyhi və səlləm, yolunda olmasını diləyirik! Oxucularımıza bu yolda uğurlar, xeyir və bərəkət arzulayırıq. Unutmayaq ki, biz yalnız Allah üçün yaşayırıq və sonda Ona da dönəcəyik. O, hər şeyin hesabını tez çəkəndir!
+The project is oriented to Azerbaijan and have been the commonly accepted prayer times.
+
+This version is a mashup Vuejs + Nodejs.
+
+Backend is simple Nodejs+Express, it generates API.
+
+Frontend is built on Vuejs + Bootstrap
+
+Installation
+npm run start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
+You will also see any lint errors in the console.
+
+yarn build
