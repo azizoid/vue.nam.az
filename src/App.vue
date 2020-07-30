@@ -3,15 +3,29 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="./assets/namaz.png" width="30" height="30" class="d-inline-block align-top" alt />
+          <img
+            src="./assets/namaz.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt
+          />
           Nam.az
         </a>
 
         <div class="collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <select class="form-control btn-outline-success" @change="changeLocation($event)">
-                <option v-for="(city, index) in cities" :key="index" :value="index">{{ city }}</option>
+              <select
+                class="form-control btn-outline-success"
+                @change="changeLocation($event)"
+              >
+                <option
+                  v-for="(city, index) in cities"
+                  :key="index"
+                  :value="index"
+                  >{{ city }}</option
+                >
               </select>
             </li>
           </ul>
@@ -25,19 +39,21 @@
         <h1>{{ location }}</h1>
         <small>
           {{
-          new Date()
-          | moment("add", "0 minutes")
-          | moment("dddd, D MMMM YYYY")
+            new Date()
+              | moment("add", "0 minutes")
+              | moment("dddd, D MMMM YYYY")
           }}
         </small>
       </div>
       <Namaz :prayers="prayers" :currentprayer="currentprayer" />
     </div>
-        <footer className="footer">
+    <footer className="footer">
       <div class>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">&copy; 2020</li>
+            <li class="breadcrumb-item active" aria-current="page">
+              &copy; 2020
+            </li>
             <li class="breadcrumb-item">
               <a href="https://www.nam.az">Nam.az</a>
             </li>
@@ -59,7 +75,7 @@ const Namaz = () => import("./components/Namaz.vue");
 export default {
   name: "App",
   components: {
-    Namaz
+    Namaz,
   },
   data: () => ({
     prayers: [
@@ -68,7 +84,7 @@ export default {
       { id: 3, title: "Zöhr Namazı", time: "01:20" },
       { id: 4, title: "Əsr Namazı", time: "03:30" },
       { id: 5, title: "Məğrib Namazı", time: "04:40" },
-      { id: 6, title: "İşa Namazı", time: "05:50" }
+      { id: 6, title: "İşa Namazı", time: "05:50" },
     ],
     location: "Bakı",
     currentprayer: 5,
@@ -89,8 +105,8 @@ export default {
       12: "Yevlax",
       13: "Naxçıvan",
       14: "Göycay",
-      15: "Zaqatala"
-    }
+      15: "Zaqatala",
+    },
   }),
   methods: {
     insertTimes(data) {
@@ -112,17 +128,17 @@ export default {
     loadApi(city) {
       axios
         .get("https://nam.az/api/" + city)
-        .then(response => this.insertTimes(response.data));
+        .then((response) => this.insertTimes(response.data));
     },
     changeLocation(event) {
       let v = event.target.value;
       this.location = this.cities[v];
       this.loadApi(v);
-    }
+    },
   },
   mounted() {
-    this.loadApi();
+    this.loadApi(1);
     this.time();
-  }
+  },
 };
 </script>
